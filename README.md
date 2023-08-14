@@ -1,0 +1,2 @@
+# Wijktypen-tabel
+ 
