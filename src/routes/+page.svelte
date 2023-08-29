@@ -171,9 +171,9 @@
   .tooltip{
     background-color: white;
     position:fixed;
-    width:40%;
+    width:30%;
     height:fit-content;
-    top:10%;
+    top:1%;
     left:216px;
     box-shadow: 0 8px 15px rgb(0 0 0 / 0.5);
     border-radius: 3%;
@@ -183,7 +183,7 @@
   }
 
   .tooltip-img{
-    width:90%;
+    width:70%;
     border-radius: 1%;
   }
 
