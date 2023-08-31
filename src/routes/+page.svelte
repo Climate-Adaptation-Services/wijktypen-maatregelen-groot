@@ -77,36 +77,37 @@
 	{/each}
 </svelte:head>
 
-<table>
-  <tr style="height:100%">
-    <th style="width:200px"></th>
-    {#each wijkOrder as wijk, i}
-      <th style="background-image:url('/images/wijken/{wijk}.png'); background-size: 100% 100%">{wijk}</th>
-    {/each}
-  </tr>
-  {#each data.data as row, i}
-    <tr class='normaltr'>
-      <td class='maatregel-title' 
-        on:mouseover={() => mouseover(row['tekst'])}
-        on:mouseout={() => mouseout()}
-      >
-        <p class='maatregel_tekst'>{row['tekst']}</p>
-      </td>
-      {#each dataOrdered[i] as value, j}
-        <td class='cell'><svg style='visibility:{(value === 'x' ? 'visible' : 'hidden')}' class='svg-container' bind:this={svgElements[i+j*dataOrdered[0].length]}></svg></td>
+<div id='iframeid'>
+  <table>
+    <tr style="height:100%">
+      <th style="width:200px"></th>
+      {#each wijkOrder as wijk, i}
+        <th style="background-image:url('/images/wijken/{wijk}.png'); background-size: 100% 100%">{wijk}</th>
       {/each}
     </tr>
+    {#each data.data as row, i}
+      <tr class='normaltr'>
+        <td class='maatregel-title' 
+          on:mouseover={() => mouseover(row['tekst'])}
+          on:mouseout={() => mouseout()}
+        >
+          <p class='maatregel_tekst'>{row['tekst']}</p>
+        </td>
+        {#each dataOrdered[i] as value, j}
+          <td class='cell'><svg style='visibility:{(value === 'x' ? 'visible' : 'hidden')}' class='svg-container' bind:this={svgElements[i+j*dataOrdered[0].length]}></svg></td>
+        {/each}
+      </tr>
+    {/each}
+  </table>
+
+  {#each data.data as maatregel, i}
+    <div class='tooltip {replaceChars(maatregel['tekst'])}'>
+      <img class='tooltip-img' src='/images/maatregelen/{replaceChars(maatregel['tekst'])}.jpg'/>
+      <h2>{maatregel['tekst']}</h2>
+      <p>{maatregel['omschrijving']}</p>
+    </div>
   {/each}
-</table>
-
-{#each data.data as maatregel, i}
-  <div class='tooltip {replaceChars(maatregel['tekst'])}'>
-    <img class='tooltip-img' src='/images/maatregelen/{replaceChars(maatregel['tekst'])}.jpg'/>
-    <h2>{maatregel['tekst']}</h2>
-    <p>{maatregel['omschrijving']}</p>
-  </div>
-{/each}
-
+</div>
 
 <style>
   table{
