@@ -122,7 +122,7 @@
     text-align: center;
     position: relative;
     color:rgb(96, 96, 96);
-    height:4vh;
+    height:3.3vh;
     font-size:0.95vw;
   }
 
