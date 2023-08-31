@@ -112,7 +112,7 @@
 <style>
   table{
     width:99vw;
-    height:47vh;
+    height:34vh;
     table-layout: fixed;
     border-spacing: 3px 3px;
   }
