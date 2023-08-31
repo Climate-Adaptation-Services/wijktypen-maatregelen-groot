@@ -112,7 +112,7 @@
 <style>
   table{
     width:99vw;
-    height:30vh;
+    height:43vh;
     table-layout: fixed;
     border-spacing: 3px 3px;
   }
@@ -122,7 +122,7 @@
     text-align: center;
     position: relative;
     color:rgb(96, 96, 96);
-    height:3vh;
+    height:4vh;
     font-size:0.95vw;
   }
 
