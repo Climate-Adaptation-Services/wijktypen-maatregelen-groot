@@ -77,37 +77,40 @@
 	{/each}
 </svelte:head>
 
-<div id='iframeid'>
-  <table>
-    <tr style="height:100%">
-      <th style="width:200px"></th>
-      {#each wijkOrder as wijk, i}
-        <th style="background-image:url('/images/wijken/{wijk}.png'); background-size: 100% 100%">{wijk}</th>
+<table>
+  <tr style="height:100%">
+    <th style="width:200px"></th>
+    {#each wijkOrder as wijk, i}
+      <th style="background-image:url('/images/wijken/{wijk}.png'); background-size: 100% 100%">{wijk}</th>
+    {/each}
+  </tr>
+  {#each data.data as row, i}
+    <tr class='normaltr'>
+      <td class='maatregel-title' 
+        on:mouseover={() => mouseover(row['tekst'])}
+        on:mouseout={() => mouseout()}
+      >
+        <p class='maatregel_tekst'>{row['tekst']}</p>
+      </td>
+      {#each dataOrdered[i] as value, j}
+        <td class='cell'><svg style='visibility:{(value === 'x' ? 'visible' : 'hidden')}' class='svg-container' bind:this={svgElements[i+j*dataOrdered[0].length]}></svg></td>
       {/each}
     </tr>
-    {#each data.data as row, i}
-      <tr class='normaltr'>
-        <td class='maatregel-title' 
-          on:mouseover={() => mouseover(row['tekst'])}
-          on:mouseout={() => mouseout()}
-        >
-          <p class='maatregel_tekst'>{row['tekst']}</p>
-        </td>
-        {#each dataOrdered[i] as value, j}
-          <td class='cell'><svg style='visibility:{(value === 'x' ? 'visible' : 'hidden')}' class='svg-container' bind:this={svgElements[i+j*dataOrdered[0].length]}></svg></td>
-        {/each}
-      </tr>
-    {/each}
-  </table>
+  {/each}
+</table>
 
-  {#each data.data as maatregel, i}
-    <div class='tooltip {replaceChars(maatregel['tekst'])}'>
+{#each data.data as maatregel, i}
+  <div class='tooltip {replaceChars(maatregel['tekst'])}'>
+    <div class='tooltip-img-div'>
       <img class='tooltip-img' src='/images/maatregelen/{replaceChars(maatregel['tekst'])}.jpg'/>
+    </div>
+    <div class='tooltip-text-div'>
       <h2>{maatregel['tekst']}</h2>
       <p>{maatregel['omschrijving']}</p>
     </div>
-  {/each}
-</div>
+  </div>
+{/each}
+
 
 <style>
   table{
@@ -172,20 +175,35 @@
   .tooltip{
     background-color: white;
     position:fixed;
-    width:30%;
+    width:60%;
     height:fit-content;
     top:1%;
     left:216px;
     box-shadow: 0 8px 15px rgb(0 0 0 / 0.5);
     border-radius: 3%;
-    text-align: center;
     padding: 30px;
     visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tooltip-img-div{
+    width:40%;
+    float:left;
+
   }
 
   .tooltip-img{
-    width:70%;
+    width:100%;
     border-radius: 1%;
+  }
+
+  .tooltip-text-div{
+    float:left;
+    width:50%;
+    text-align: left;
+    margin-left: 10%;
   }
 
 </style>
