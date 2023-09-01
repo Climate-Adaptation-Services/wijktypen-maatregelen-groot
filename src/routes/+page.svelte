@@ -118,7 +118,8 @@
     height:97vh;
     table-layout: fixed;
     border-spacing: 3px 3px;
-    padding-bottom:5%;
+    padding-bottom:10%;
+    padding-top:10%;
   }
 
   td{
@@ -126,7 +127,7 @@
     text-align: center;
     position: relative;
     color:rgb(96, 96, 96);
-    height:10vh;
+    height:8vh;
     font-size:0.95vw;
   }
 
