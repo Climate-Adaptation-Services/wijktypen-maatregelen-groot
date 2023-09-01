@@ -179,7 +179,7 @@
     position:fixed;
     width:60%;
     height:fit-content;
-    top:1%;
+    top:20%;
     left:216px;
     box-shadow: 0 8px 15px rgb(0 0 0 / 0.5);
     border-radius: 3%;
