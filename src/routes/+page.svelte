@@ -126,7 +126,7 @@
     text-align: center;
     position: relative;
     color:rgb(96, 96, 96);
-    height:12vh;
+    height:6vh;
     font-size:0.95vw;
   }
 
