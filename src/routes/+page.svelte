@@ -115,11 +115,9 @@
 <style>
   table{
     width:99vw;
-    height:97vh;
+    height:27vh;
     table-layout: fixed;
     border-spacing: 3px 3px;
-    padding-bottom:10%;
-    padding-top:10%;
   }
 
   td{
@@ -127,7 +125,7 @@
     text-align: center;
     position: relative;
     color:rgb(96, 96, 96);
-    height:4vh;
+    height:25px;
     font-size:0.95vw;
   }
 
